@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo h1 {
+    font-weight: 700;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Product Section */
+#product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-image {
+    position: relative;
+    max-width: 50%;
+    margin: 20px;
+}
+
+#main-image {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+#main-image:hover {
+    transform: scale(1.1);
+}
+
+.thumbnail-images {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    max-width: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+    border-color: #3498db;
+}
+
+.product-info {
+    max-width: 45%;
+    text-align: left;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+#timer {
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Features and Specifications Sections */
+#features, #specifications {
+    background-color: #ecf0f1;
+    padding: 40px 20px;
+}
+
+#features ul {
+    list-style: none;
+    padding: 0;
+}
+
+#features li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+#specifications table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#specifications th, #specifications td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#specifications th {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Reviews Section */
+#reviews {
+    background-color: #f0f8ff;
+    padding: 40px 20px;
+}
+
+.review {
+    margin: 20px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Newsletter Section */
+#newsletter {
+    background-color: #fffacd;
+    padding: 40px 20px;
+}
+
+form input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    width: 250px;
+}
+
+form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+/* Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #product {
+        flex-direction: column;
+    }
+
+    .product-info, .product-image {
+        max-width: 100%;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>SM Wristwatch</h1>
+        </div>
+        <nav>
+            <a href="#product">Product</a>
+            <a href="#features">Features</a>
+            <a href="#specifications">Specifications</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#newsletter">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Product Section -->
+    <section id="product" class="fade-in">
+        <div class="product-image">
+            <img id="main-image" src="images/SM.png" alt="Luxury Wristwatch">
+            <div class="thumbnail-images">
+                <img src="images/watch 1.webp" alt="Image 1" class="thumbnail">
+                <img src="images/watch 2.webp" alt="Additional Image 2" class="thumbnail">
+                <img src="images/watch 3.png" alt="Additional Image 3" class="thumbnail">
+            </div>
+        </div>
+        <div class="product-info">
+            <h2>SM Watch</h2>
+            <p class="description">
+                Experience unparalleled sophistication with the SM Watch. Featuring a refined design and advanced technology, this watch is perfect for any occasion.
+            </p>
+            <div class="price">$299.99</div>
+            <div class="cta-buttons">
+                <button id="buy-now">Buy Now</button>
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="countdown-timer">
+                <h3>Limited Time Offer!</h3>
+                <div id="timer" data-end-time="2024-12-31T23:59:59"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="fade-in">
+        <h3>Key Features</h3>
+        <ul>
+            <li><i class="fas fa-clock"></i> Swiss Movement</li>
+            <li><i class="fas fa-water"></i> Water Resistant up to 50m</li>
+            <li><i class="fas fa-diamond"></i> Premium Sapphire Crystal</li>
+            <li><i class="fas fa-adjust"></i> Adjustable Leather Strap</li>
+        </ul>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specifications" class="fade-in">
+        <h3>Specifications</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Detail</th>
+            </tr>
+            <tr>
+                <td>Case Diameter</td>
+                <td>42mm</td>
+            </tr>
+            <tr>
+                <td>Case Material</td>
+                <td>Stainless Steel</td>
+            </tr>
+            <tr>
+                <td>Movement</td>
+                <td>Quartz</td>
+            </tr>
+            <tr>
+                <td>Strap Material</td>
+                <td>Genuine Leather</td>
+            </tr>
+            <tr>
+                <td>Warranty</td>
+                <td>2 Years</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="fade-in">
+        <h3>Customer Reviews</h3>
+        <div class="review">
+            <p><i class="fas fa-quote-left"></i> This watch is exquisite and the quality is top-notch! <i class="fas fa-quote-right"></i> - Sarah L.</p>
+        </div>
+        <div class="review">
+            <p><i class="fas fa-quote-left"></i> Worth every penny. I receive compliments every time I wear it. <i class="fas fa-quote-right"></i> - Michael R.</p>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="fade-in">
+        <h3>Sign Up for Our Newsletter</h3>
+        <form action="#">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/surajit-mandal-536a22224/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/surajit818615"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/Surajit818615"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Luxury Wristwatch</p>
+    </footer>
+
+    <script>
+        // Buy Now and Add to Cart Button Interactions
+document.getElementById('buy-now').addEventListener('click', function() {
+    alert('Thank you for your purchase!');
+});
+
+document.getElementById('add-to-cart').addEventListener('click', function() {
+    alert('Item added to cart!');
+});
+
+// Thumbnail Image Click to Change Main Image
+const thumbnails = document.querySelectorAll('.thumbnail');
+const mainImage = document.getElementById('main-image');
+
+thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', function() {
+        mainImage.src = this.src;
+    });
+});
+
+// Countdown Timer
+function updateCountdown() {
+    const endTime = new Date(document.getElementById('timer').getAttribute('data-end-time'));
+    const now = new Date();
+    const timeRemaining = endTime - now;
+
+    if (timeRemaining <= 0) {
+        document.getElementById('timer').innerHTML = "Offer Expired";
+        return;
+    }
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    document.getElementById('timer').innerHTML = `
+        ${days}d ${hours}h ${minutes}m ${seconds}s
+    `;
+}
+
+setInterval(updateCountdown, 1000);
+
+// Scroll Animations on Sections
+const sections = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.1
+    }
+);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+    </script>
+</body>
+</html>
